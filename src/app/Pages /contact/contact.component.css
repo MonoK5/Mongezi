@@ -1,0 +1,273 @@
+
+/* Base Styles */
+.contact h2 {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+.contact a {
+  color: #006600;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: #e10000;
+}
+
+.contact-container {
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 20px; /* Space between the cards */
+  padding: 20px;
+  justify-items: center; /* Center the cards within each grid cell */
+}
+
+.contact-card {
+  width: 200px; /* Set the width of each card */
+  padding: 30px;
+  margin: 10px;
+  border: 1px solid #0f0;
+  border-radius: 10px;
+  background-color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: bounce 2s infinite; /* Apply the bounce animation */
+}
+
+.contact-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card p {
+  margin: 10px 0;
+}
+
+.contact-card a {
+  color: #006600;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0); /* Cards in their original position */
+  }
+  50% {
+      transform: translateY(-10px); /* Cards bounce upwards */
+  }
+}
+
+/* Card Styles for the Flip Effect */
+.card {
+  width: 300px;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effects */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.card-front {
+  background: rgb(0, 0, 0);
+  border: 1px solid #000000;
+}
+
+.card-back {
+  background: #000000;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card:hover {
+  animation: pulse 1s infinite, bounce 2s infinite; /* Apply pulse and bounce on hover */
+  transform: translateY(-5px); /* Float effect on hover */
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0); /* The card returns to its original position */
+  }
+  50% {
+      transform: translateY(-10px); /* Bounce effect */
+  }
+}
+
+/* Heading Style */
+.heading {
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet and Smaller Screens */
+@media (max-width: 768px) {
+  .contact-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+
+  /* Adjust the card width for smaller screens */
+  .contact-card {
+      width: 100%; /* Full width for small screens */
+      padding: 15px;
+  }
+
+  /* Adjust font size for headings */
+  .contact h2 {
+      font-size: 2em;
+  }
+
+  /* Card sizes and layout adjustments for flip effect */
+  .card {
+      width: 250px;
+      height: 200px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .contact-container {
+      grid-template-columns: 1fr; /* 1 card per row on very small screens */
+      padding: 10px;
+  }
+
+  .contact-card {
+      width: 100%; /* Full width for small screens */
+      padding: 10px;
+  }
+
+  .contact h2 {
+      font-size: 1.8em; /* Smaller heading font size */
+  }
+
+  /* Adjust card size further for small screens */
+  .card {
+      width: 200px;
+      height: 180px;
+  }
+
+  /* Make sure animations scale appropriately */
+  .card:hover {
+      transform: translateY(0); /* Avoid too much movement on smaller screens */
+  }
+}
+
+.wave-container {
+  text-align: center;
+  justify-content: center;
+
+
+
+}
+
+.wave-text {
+  margin-top: 50px;
+  display: inline-block;
+  font-size: 4em;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 600px;
+
+  
+}
+
+.wave-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: wave 5s ease-in-out infinite;
+ 
+}
+
+.wave-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.wave-text span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.wave-text span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.wave-text span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes wave {
+  0%, 100% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+*
+{
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: consolas;
+}
+
